@@ -29,6 +29,19 @@ order = Order.new(customer: jack, total:1_000_000)
 VirtusConvert.new(order).to_hash #=> {customer:{name:'Jack', address:'123 Fake Street'}, total: 1000000}
 ```
 
+### Options
+
+You can optionally pass in a options hash to make things more fancy like
+
+#### reject_nils
+
+Set reject nils to true tor reject nils
+
+```ruby
+jack = Person.new(name: 'Jack', address: nil, items: [1,2,nil,3])
+VirtusConvert(jack).to_hash #=> {name: 'Jack', items: [1,2,3] }
+```
+
 Look in the specs/ folder for more example use cases
 
 ## Development
