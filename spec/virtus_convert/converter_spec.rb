@@ -35,5 +35,12 @@ describe VirtusConvert::Converter do
         value2:'val2'
       })
     end
+
+    context 'with reject_nils: true' do
+      it 'should remove nil values' do
+        converter = VirtusConvert.new( {hash: 'string', missing: nil, array:['One', {two: 2}, nil]}, reject_nils: true )
+        expect(converter.to_hash).to eq( {hash: 'string', array:['One', {two: 2}]} )
+      end
+    end
   end
 end

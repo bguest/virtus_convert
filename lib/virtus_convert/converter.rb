@@ -6,10 +6,10 @@ module VirtusConvert
 
   class Converter
 
-    def initialize(unknown)
-      @root = VirtusConvert::Hash.new(unknown) if unknown.is_a? ::Hash
-      @root ||= VirtusConvert::Array.new(unknown) if unknown.is_a? ::Array
-      @root ||= VirtusConvert::Object.new(unknown)
+    def initialize(unknown, options = {})
+      @root = VirtusConvert::Hash.new(unknown, options) if unknown.is_a? ::Hash
+      @root ||= VirtusConvert::Array.new(unknown, options) if unknown.is_a? ::Array
+      @root ||= VirtusConvert::Object.new(unknown, options)
     end
 
     def to_hash

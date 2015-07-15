@@ -1,8 +1,8 @@
 module VirtusConvert
   class Object
-    def initialize(object)
+    def initialize(object, options = {})
       if object.respond_to?(:attributes)
-        @object = VirtusConvert.new(object.attributes)
+        @object = VirtusConvert.new(object.attributes, options)
       else
         @object = object
       end
