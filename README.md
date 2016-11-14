@@ -39,7 +39,7 @@ Set reject nils to true tor reject nils
 
 ```ruby
 jack = Person.new(name: 'Jack', address: nil, items: [1,2,nil,3])
-VirtusConvert(jack).to_hash #=> {name: 'Jack', items: [1,2,3] }
+VirtusConvert.new(jack, reject_nils: true).to_hash #=> {name: 'Jack', items: [1,2,3] }
 ```
 
 Look in the specs/ folder for more example use cases
